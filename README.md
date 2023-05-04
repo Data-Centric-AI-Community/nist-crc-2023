@@ -49,6 +49,51 @@
 	- [Synthetic Data for Data Science Development](https://ydata.ai/resources/synthetic-data-the-future-standard-for-data-science-development)
 	- [Applications of Synthetic Data - The role of Synthetic Data in Privacy Engineering](https://ydata.ai/resources/the-role-of-synthetic-data-in-privacy-engineering)
 - Post questions and comments on the *[🤖-nist-challenge](https://discord.gg/46wAzZxpFy)* channel
-- Meet us on Friday (**May 5**) to discuss what you've learned (*check the available spots on our 📅 Discord Calendar*)
+- Meet us on Friday (**May 5**) to discuss what you've learned (*check the available slots on our 📅 Discord Calendar*)
+
+
+# ⚙️ Installation Instructions
+<details>
+  <summary><b> 📦 How to create and use Virtual Environments?</b></summary>
+
+A lot of troubleshooting arises due to **misalignments between environments and package requirements**. If you're new to data science development, maybe you just install packages unto your global Python environment. This may turn into a lot of headaches when project requirements are conflicting.
+
+[Virtual Environments](https://serpapi.com/blog/python-virtual-environments-using-virtualenv-and-poetry/) are ideal to overcome this issue: they **isolate your installations from the "global" environment**, so that you don't have to worry about conflicts. If you've never used virtual environments for your data science projects, you can start by installing [anaconda](https://www.anaconda.com). If you need a little convincing that this is a nice tool to have on your belt, then [check this post](https://codesolid.com/conda-vs-pip/?utm_content=cmp-true) comparing `conda` with `pip`, `venv`, and  `pyenv`.
+
+Once anaconda is installed, **creating a new environment** is as easy as running this on your shell:
+
+```bash
+conda create --name synth-env python=3.10
+```
+
+This creates a new environment called **synth-env** with Python version 3.10.X. You can then switch to this environment by **activating it**:
+
+```bash
+conda activate synth-env
+```
+
+In this new environment, you can still **call `pip` to install python packages**, such as `ydata-synthetic`:
+
+```bash
+pip install ydata-synthetic
+```
+
+Now you can open up your **Python editor or Jupyter Notebook** and use the `synth-env` as your development environment, without having to worry with conflicting versions or packages between projects! Once you're done, you can **deactivate the environment** using:
+
+```bash
+conda deactivate synth-env
+```
+
+#### Suggested Materials
+  - [📖 Environments, Conda, Pip, aaaaah!](https://towardsdatascience.com/environments-conda-pip-aaaaah-d2503877884c): How to manage Python Environments without a headache
+  - [📺 How to "pip install ydata-synthetic" without errors!](https://www.youtube.com/watch?v=jj9X1_cKRwI): How to install anaconda, create a virtual environment using `conda`, install packages with `pip`, and use the virtual environments in PyCharm or Jupyter Notebooks
+ 
+</details>
+
+
+	
+
+
+
 
 
