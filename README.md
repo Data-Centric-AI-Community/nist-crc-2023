@@ -43,13 +43,33 @@
 
 
 #### Week 2:
-- Learn about the basic aspects of Synthetic Data:
+- Learn about the basic aspects of **Synthetic Data**:
 	- [10 Most Frequently Asked Questions About Synthetic Data](https://ydata.ai/resources/10-most-frequently-asked-questions-about-synthetic-data)
 	- [Synthetic Tabular Data Generation](https://towardsdatascience.com/synthetic-tabular-data-generation-34eb94a992ed)
 	- [Synthetic Data for Data Science Development](https://ydata.ai/resources/synthetic-data-the-future-standard-for-data-science-development)
 	- [Applications of Synthetic Data - The role of Synthetic Data in Privacy Engineering](https://ydata.ai/resources/the-role-of-synthetic-data-in-privacy-engineering)
 - Post questions and comments on the *[🤖-nist-challenge](https://discord.gg/46wAzZxpFy)* channel
 - Meet us on Friday (**May 5**) to discuss what you've learned (*check the available slots on our 📅 Discord Calendar*)
+
+
+
+#### Week 3:
+- Learn about the basic aspects of **Data Profiling**:
+	- [📺 Auditing Data Quality with ydata-profiling](https://www.youtube.com/watch?v=5EH_OkCd6TQ&t=1s): learn about what is **data profiling**, what common **data quality issues** we find in real-world domains (*can you spot a few in the NIST datasets?*), and how `ydata-profiling` can help you diagnose and overcome them
+	- [📖 Awesome Data Science Tools to Master in 2023: Data Profiling Edition](https://towardsdatascience.com/awesome-data-science-tools-to-master-in-2023-data-profiling-edition-29d29310f779): learn more about **data profiling** and existing **open source tools** to understand your data to the fullest!
+	- [📖 Auditing Data Quality with YData Profiling](https://medium.com/ydata-ai/auditing-data-quality-with-pandas-profiling-b1bf1919f856): an overview of `ydata-profiling` functionalities and how-to's
+
+
+- Start profiling the NIST data:
+	- Install[`ydata-profiling`](https://github.com/ydataai/ydata-profiling) (check the **Installation Instructions** below) and **don't forget to star it, thank you!** ⭐️
+	- Choose one of the NIST datasets (`MA`, `TX`, or `NATIONAL`):
+		- The datasets are [available here](https://github.com/usnistgov/SDNist/tree/main/nist%20diverse%20communities%20data%20excerpts)
+		- Run a **Profile Report** on your data (check the **Installation Instructions** below)
+		- Create an excel file to register your learnings. **Suggestion for the columns:** `Feature Name | Data Type (Numeric/Categorical) | Missing Values (Y/N) | Notes/Observations`. Your observations should be based on the profiling report, but also on the [description of the features provided](https://github.com/usnistgov/SDNist/tree/main/nist%20diverse%20communities%20data%20excerpts)
+
+- Post questions and comments on the *[🤖-nist-challenge](https://discord.gg/46wAzZxpFy)* channel.
+- Meet us on Friday (**May 12**) to discuss what you've learned (*check the available slots on our 📅 Discord Calendar*). **Don't forget to bring your excel file with the data description and your profiling report!**
+
 
 
 # ⚙️ Installation Instructions
@@ -91,9 +111,11 @@ conda deactivate synth-env
 </details>
 
 
-	
+<details>
+  <summary><b> (TBD) 📊 How to install ydata-profiling and create a Profiling Report?</b></summary>
+</details>
 
 
-
+# 🧠 FAQs (TBD)
 
 
