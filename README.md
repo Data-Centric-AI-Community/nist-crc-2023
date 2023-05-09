@@ -110,7 +110,7 @@ conda deactivate synth-env
  
 </details>
 
-##
+###
 <details>
   <summary><b> 📊 How to install ydata-profiling and create a Profiling Report?</b></summary>
 
