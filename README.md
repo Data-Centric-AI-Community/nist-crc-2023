@@ -110,10 +110,42 @@ conda deactivate synth-env
  
 </details>
 
-
+##
 <details>
-  <summary><b> (TBD) 📊 How to install ydata-profiling and create a Profiling Report?</b></summary>
+  <summary><b> 📊 How to install ydata-profiling and create a Profiling Report?</b></summary>
+
+You may start by **creating your virtual environment and installing the package**:
+
+```bash
+conda create -n synth-env python=3.10
+conda activate synth-env
+pip install ydata-profiling==4.1.2
+```
+
+Then, in your Jupyter Notebook or other editor (e.g., PyCharm), **load your Pandas DataFrame** as you normally would and the **generation of the profiling report** is straightforward:
+
+```python
+import pandas as pd
+from pandas_profiling import ProfileReport
+
+# Read the data from a csv file (NIST "MA" data in the example)
+df = pd.read_csv("ma2019.csv")
+
+# Generate the data profiling report 
+original_report = ProfileReport(df, title='Original Data')
+original_report.to_file("original_report.html")
+```
+
+You can then navigate the report to **investigate the data quality issues** generated, and study the basic **descriptive statistics** of your data! 
+
+#### Additional Materials
+  - [📚 Examples with real-world datasets](https://ydata-profiling.ydata.ai/docs/master/pages/getting_started/examples.html): A list of examples and data profiling reports and usage of ydata-profiling
+  - [🙇🏽‍♂️ Read the Docs: Documentation](https://ydata-profiling.ydata.ai/docs/master/pages/getting_started/overview.html): from installation and quickstart to integrations and advanced usage
+
 </details>
+
+
+
 
 
 # 🧠 FAQs (TBD)
