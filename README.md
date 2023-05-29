@@ -72,6 +72,24 @@
 
 
 
+#### Weeks 4 & 5:
+- Investigate `ydata-synthetic` and some of the models used to **Generate Synthetic Data**:
+	- [📖 GANs for Synthetic Data Generation](https://ydata.ai/resources/gans-for-synthetic-data-generation)
+	- [📖 10 Most Asked Questions in ydata-synthetic](https://ydata.ai/resources/10-most-asked-questions-on-ydata-synthetic)
+	- [📖 Synthetic Data Generation with Gaussian Mixture Models](https://ydata.ai/resources/synthetic-data-generation-with-gaussian-mixture-models)
+	- [📖 Generating Synthetic Tabular Data with GANs - Part 1](https://medium.com/ydata-ai/generating-synthetic-tabular-data-with-gans-part-1-866705a77302)
+	- [📖 Generating Synthetic Tabular Data with GANs - Part 2](https://medium.com/ydata-ai/generating-synthetic-tabular-data-with-gans-part-2-a0aba150539)
+	- [📖 How to Generate Synthetic Tabular Data](https://towardsdatascience.com/how-to-generate-synthetic-tabular-data-bcde7c28038a)
+- Start experimenting with [`ydata-synthetic`](https://github.com/ydataai/ydata-synthetic) (check the **Installation Instructions** below and **don't forget to star it, thank you!** ⭐️). If you prefer a UI experience, you can also **leverage the Streamlit App** in version 1.0.0:
+	- [📺 How to "pip install ydata-synthetic" without errors!](https://www.youtube.com/watch?v=jj9X1_cKRwI&t=1s)
+	- [📺 Install ydata-synthetic in 5 min](https://www.youtube.com/watch?v=aESmGcxtBdU)
+	- [📖 How to Generate Real-World Synthetic Data with CTGAN](https://medium.com/towards-data-science/how-to-generate-real-world-synthetic-data-with-ctgan-af41b4d60fde)
+	- [📺 How to Generate Synthetic Data with ydata-synthetic's Streamlit app](https://www.youtube.com/watch?v=6Lzi26szKNo)
+- Compare your **synthetic** data with the **real** data using the `.compare()` functionality of [`ydata-profiling`](https://github.com/ydataai/ydata-profiling):
+	- [📖 How to compare 2 datasets with ydata-profiling](https://pub.towardsai.net/how-to-compare-2-dataset-with-pandas-profiling-2ae3a9d7695e). *What are the obtained results? Are there any aspects that you can improve?*
+- Post questions and comments on the *[🤖-nist-challenge](https://discord.gg/46wAzZxpFy)* channel! You can upload your profiling reports the the channel so that we can discuss changes and improvements.
+
+
 # ⚙️ Installation Instructions
 <details>
   <summary><b> 📦 How to create and use Virtual Environments?</b></summary>
@@ -138,16 +156,56 @@ original_report.to_file("original_report.html")
 
 You can then navigate the report to **investigate the data quality issues** generated, and study the basic **descriptive statistics** of your data! 
 
+
 #### Additional Materials
   - [📚 Examples with real-world datasets](https://ydata-profiling.ydata.ai/docs/master/pages/getting_started/examples.html): A list of examples and data profiling reports and usage of ydata-profiling
   - [🙇🏽‍♂️ Read the Docs: Documentation](https://ydata-profiling.ydata.ai/docs/master/pages/getting_started/overview.html): from installation and quickstart to integrations and advanced usage
 
+  </details>
+
+###
+<details>
+  <summary><b> 🤖 How to install ydata-synthetic and create a synthesizer?</b></summary>
+
+You may use you previous **virtual environment** (`synth-env`). **Activate** it and and **install** the package:
+
+```bash
+conda activate synth-env
+pip install ydata-synthetic==1.1.0
+```
+
+Then, you can leverage one of the models available in the package. In this example, we will be using **CTGAN**:
+
+```python
+# Load data
+data = fetch_data('adult')
+num_cols = ['age', 'fnlwgt', 'capital-gain', 'capital-loss', 'hours-per-week']
+cat_cols = ['workclass','education', 'education-num', 'marital-status', 'occupation', 'relationship', 'race', 'sex', 'native-country', 'target']
+
+# Defining the training and model parameters
+batch_size = 500
+epochs = 500+1
+learning_rate = 2e-4
+beta_1 = 0.5
+beta_2 = 0.9
+
+# Create and train the model
+ctgan_args = ModelParameters(batch_size=batch_size,
+                             lr=learning_rate,
+                             betas=(beta_1, beta_2))
+
+train_args = TrainParameters(epochs=epochs)
+
+synth = RegularSynthesizer(modelname='ctgan', model_parameters=ctgan_args)
+synth.fit(data=data, train_arguments=train_args, num_cols=num_cols, cat_cols=cat_cols)
+
+# Generate new samples
+synth_data = synth.sample(1000)
+
+print(synth_data)
+```
+
+You can also check further [examples with other models](https://github.com/ydataai/ydata-synthetic/tree/dev/examples/regular/models).
 </details>
-
-
-
-
-
-# 🧠 FAQs (TBD)
 
 
